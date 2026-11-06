@@ -681,22 +681,11 @@ body{background-color:var(--ivory);background-image:radial-gradient(rgba(184,138
   <div class="label" style="color:#f2d58e">We would love to have you with us</div>
   <h2 style="color:#fff0d1">Kindly RSVP</h2><div class="rule" style="background:#e5b44c"></div>
   <p class="intro" style="color:#f8e8cf">Please let our family know if you'll be joining the celebrations. Your reply will open a ready-to-send WhatsApp message.</p>
-  <form id="rsvpForm" style="max-width:620px;margin:32px auto 0;padding:26px;background:#fff6e5;color:#443532;border:2px solid #d6a64e;box-shadow:0 18px 45px rgba(0,0,0,.18);text-align:left">
-   <label style="display:block;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#315b43;margin-bottom:6px" for="guestName">Your name</label>
-   <input id="guestName" name="name" required placeholder="Enter your name" style="width:100%;padding:13px;border:1px solid #d9c49e;background:#fffdf8;margin-bottom:16px;font: .9rem 'DM Sans',sans-serif">
-   <label style="display:block;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#315b43;margin-bottom:6px" for="attendance">Will you be joining us?</label>
-   <select id="attendance" name="attendance" required style="width:100%;padding:13px;border:1px solid #d9c49e;background:#fffdf8;margin-bottom:16px;font: .9rem 'DM Sans',sans-serif">
-    <option value="">Please choose</option><option value="Joyfully attending">Joyfully attending</option><option value="Sorry, unable to attend">Sorry, unable to attend</option>
-   </select>
-   <label style="display:block;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#315b43;margin-bottom:6px" for="guestCount">Number of guests (including you)</label>
-   <select id="guestCount" name="guests" style="width:100%;padding:13px;border:1px solid #d9c49e;background:#fffdf8;margin-bottom:16px;font: .9rem 'DM Sans',sans-serif">
-    <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option>
-   </select>
-   <label style="display:block;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#315b43;margin-bottom:6px" for="guestNote">A note for the family (optional)</label>
-   <textarea id="guestNote" rows="3" placeholder="Any message for Nanda & Goutham?" style="width:100%;padding:13px;border:1px solid #d9c49e;background:#fffdf8;margin-bottom:18px;font: .9rem 'DM Sans',sans-serif;resize:vertical"></textarea>
-   <button type="submit" class="btn" style="width:100%;cursor:pointer">Send RSVP on WhatsApp ↗</button>
-   <p id="rsvpStatus" style="font-size:.72rem;color:#6e5d55;margin:12px 0 0;text-align:center">Your WhatsApp app will open with your response ready to send. Choose the family contact.</p>
-  </form>
+  <div style="max-width:620px;margin:32px auto 0;padding:30px 26px;background:#fff6e5;color:#443532;border:2px solid #d6a64e;box-shadow:0 18px 45px rgba(0,0,0,.18);text-align:center">
+   <p style="margin:0 0 20px;color:#5c493f">Kindly share your attendance and the number of guests through our RSVP form. Your response will be saved automatically for the family.</p>
+   <a class="btn" href="https://forms.gle/nNNVpsa17m7svnCh8" target="_blank" rel="noopener noreferrer" style="display:inline-block;width:100%;text-decoration:none">Complete Wedding RSVP ↗</a>
+   <p style="font-size:.75rem;color:#6e5d55;margin:14px 0 0">The form opens securely in a new tab.</p>
+  </div>
  </div>
 </section>
 
@@ -799,17 +788,6 @@ document.querySelectorAll('.wish-flower').forEach(flower=>{
  });
 });
 
-document.getElementById('rsvpForm').addEventListener('submit',e=>{
- e.preventDefault();
- const name=document.getElementById('guestName').value.trim();
- const attendance=document.getElementById('attendance').value;
- const guests=document.getElementById('guestCount').value;
- const note=document.getElementById('guestNote').value.trim();
- if(!name||!attendance)return;
- const message=`Nanda & Goutham Wedding RSVP%0AName: ${encodeURIComponent(name)}%0AResponse: ${encodeURIComponent(attendance)}%0ANumber of guests: ${encodeURIComponent(guests)}%0ANote: ${encodeURIComponent(note||'—')}`;
- document.getElementById('rsvpStatus').textContent='Opening WhatsApp. Please choose the family contact and send your RSVP.';
- window.open('https://wa.me/?text='+message,'_blank','noopener');
-});
 
 const sectionLinks=[...nav.querySelectorAll('a')];const sectionObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)sectionLinks.forEach(a=>a.classList.toggle('active',a.hash==='#'+e.target.id))}),{rootMargin:'-35% 0px -55% 0px'});document.querySelectorAll('main section[id]').forEach(s=>sectionObserver.observe(s));
 </script>
